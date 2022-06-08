@@ -17,7 +17,7 @@ Things that interest me the most :
 
 1.  Anything that involves thinking about parallelism such as the following topics : 
 Parallel Programming, Parallel Computing Parallel Architectures, Parallel Algorithms and Parallel Numerical Algorithms & Applications. 
-2.  Matrix Computations 
+2.  Matrix Computations & Parallel Matrix Computation 
 3.  Computer Architectures 
 4.  Computational Photography 
 
