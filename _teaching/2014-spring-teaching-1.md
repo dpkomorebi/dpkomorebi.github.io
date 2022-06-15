@@ -1,16 +1,16 @@
 ---
-title: "Teaching experience 1"
+title: "Binary Search"
 collection: teaching
-type: "Undergraduate course"
-permalink: /teaching/2014-spring-teaching-1
+type: "Computer Science"
+permalink: /teaching/2022-binarysearch-teaching
 venue: "University 1, Department"
-date: 2014-01-01
+date: 2022-06-15
 location: "City, Country"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+We'll talk about binary search. 
 
-Heading 1
+Binary Search (pseudoalgorithm) 
 ======
 
 Heading 2
