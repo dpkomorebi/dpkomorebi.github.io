@@ -3,7 +3,7 @@ title: "Binary Search"
 collection: teaching
 type: "Computer Science"
 permalink: /teaching/2022-binarysearch-teaching
-venue: "University 1, Department"
+#venue: "University 1, Department"
 date: 2022-06-15
 location: "City, Country"
 ---
