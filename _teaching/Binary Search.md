@@ -40,7 +40,33 @@ Graphical explanation of Binary Search.
 
 ![Swiss Alps](/images/Binary_search_1.jpeg)
 
-In addition to the overflow problem, you have to be careful about the condition in the While loop. Here, we have strictly less ( low < high).  In some cases, you may see (low <= high).  If you use "low <= high" in the code above and do not modify anything else, this code will not return the answer (or get stuck in the loop). 
+In addition to the overflow problem, you have to be careful about the condition in the While loop. Here, we have strictly less ( low < high).  In some cases, you may see (low <= high).  If you use "low <= high" in the code above and do not modify anything else, this code will not return the answer (or get stuck in the loop).  So, if the condition in the while loop is (low <= high), then the following code works. Notice that we have "high = mid + 1" instead of "high = mid". 
+
+{% highlight python %}
+def BinarySearch(nums, target):
+    # nums is an array and target is a number we hope to find. If the target exists, then we return its index number 
+    # If the number doesn't exist, we return -1 
+
+    # nums must be sorted.  If nums is not sorted, we sort it first.
+
+    low, high = 0, len(nums) - 1
+
+    while low <= high:
+        mid = low + (high - low) // 2
+        # To prevent overflow
+
+        if nums[mid] < target:
+            # In this case, our search space lies to the right portion of mid.
+            low = mid + 1
+        elif nums[mid] > target : 
+            high = mid - 1 
+        else:
+            return mid 
+    # if we can't find the number, we return -1 
+    return -1 
+
+{% endhighlight %}
+
 
 ======
 
