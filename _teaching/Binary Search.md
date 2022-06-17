@@ -39,9 +39,11 @@ def BinarySearch(nums, target):
 Graphical explanation of Binary Search. 
 
 ![Swiss Alps](/images/Binary_search_1.jpeg)
+
+In addition to the overflow problem, you have to be careful about the condition in the While loop. Here, we have strictly less ( low < high).  In some cases, you may see (low <= high).  If you use "low <= high" in the code above and do not modify anything else, this code will not return the answer (or get stuck in the loop). 
 ======
 
-Heading 2
+Leetcode Problem #315 
 ======
 
 Heading 3
