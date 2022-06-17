@@ -74,6 +74,8 @@ Leetcode Problem #33 - Search in Rotated Sorted Array.
 ======
 
 [Here is the problem.  ](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+Well, since the time complexity for this problem must be in $O(\log n)$, we can use Binary Search.  However, we have rotation happening in this array.
+My approach was a bit more intuitive than the model solutions in the problem.  We use Binary Search to find the rotation index.  
 
 
 Heading 3
