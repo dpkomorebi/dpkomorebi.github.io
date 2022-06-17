@@ -12,7 +12,7 @@ We'll talk about binary search.
 
 Binary Search (pseudoalgorithm) 
 
-https://github.com/dpkomorebi/dpkomorebi.github.io/blob/f58ed91b3af195e6cc543a2cac6c8fd3c24622d7/images/Binary_search_1.jpeg
+(https://github.com/dpkomorebi/dpkomorebi.github.io/blob/f58ed91b3af195e6cc543a2cac6c8fd3c24622d7/images/Binary_search_1.jpeg)
 ======
 
 Heading 2
