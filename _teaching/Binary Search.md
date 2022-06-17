@@ -12,7 +12,7 @@ We'll talk about binary search.
 
 Binary Search (pseudoalgorithm) 
 
-![Swiss Alps](https://github.com/dpkomorebi/dpkomorebi.github.io/blob/175dadc488c80f048fa2e57bd954e9d4f281786c/images/Binary_search_1.jpeg)
+![Swiss Alps](/images/Binary_search_1.jpeg)
 ======
 
 Heading 2
