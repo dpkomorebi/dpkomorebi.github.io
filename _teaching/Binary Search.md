@@ -84,5 +84,58 @@ Well, since the time complexity for this problem must be in $O(\log n)$, we can 
 My approach was a bit more intuitive than the model solutions in the problem.  We use Binary Search to find the rotation index.  
 
 
-Heading 3
+Leetcode Problem #702 - Search in a Sorted Array of Unknown Size 
 ======
+
+[Here is the problem.](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)
+This one isn't that much different from the previous problem.  The difference is that we have an array of unknown size.  However, the solution for this problem is very similar to the one we have seen so far.  So what are our "low" and "high"?  "low" would be 0.  How about "high"?  We can use While loop to find a reasonable value of "high".  See the code below for an implementation.  
+
+{% highlight python %}
+#class ArrayReader:
+#    def get(self, index: int) -> int:
+
+class Solution:
+    def search(self, reader: 'ArrayReader', target: int) -> int:
+        low = 0
+        # let's find high
+        high_val = reader.get(0)
+        high = 1
+        while high_val < target:
+            high = high * 2
+            high_val = reader.get(high)
+        
+        
+        def BinarySearch(low, high):
+            
+            while low < high:
+                mid = low + (high - low) // 2
+                mid_value = reader.get(mid)
+                if mid_value < target:
+                    low = mid + 1
+                elif mid_value > target:
+                    high = mid
+                else:
+                    return mid
+            if reader.get(low) == target:
+                return low
+            else:
+                return -1
+            
+            # This is another version of Binary Search
+            # while low <= high:
+            #     mid = low + (high - low) // 2
+            #     mid_value = reader.get(mid)
+            #     if mid_value < target:
+            #         low = mid + 1
+            #     elif mid_value > target:
+            #         high = mid - 1
+            #     else:
+            #         return mid
+            # return -1
+        
+        return BinarySearch(0, high)
+
+{% endhighlight %}
+
+Leetcode problem 
+=====
