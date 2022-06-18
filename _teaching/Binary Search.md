@@ -32,7 +32,10 @@ def BinarySearch(nums, target):
         else:
             return mid 
     # if we can't find the number, we return -1 
-    return -1 
+    if nums[low] == target: 
+        return low
+    else:
+        return -1 
 
 {% endhighlight %}
 
