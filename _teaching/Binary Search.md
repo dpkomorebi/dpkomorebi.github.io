@@ -91,8 +91,9 @@ Leetcode Problem #702 - Search in a Sorted Array of Unknown Size
 This one isn't that much different from the previous problem.  The difference is that we have an array of unknown size.  However, the solution for this problem is very similar to the one we have seen so far.  So what are our "low" and "high"?  "low" would be 0.  How about "high"?  We can use While loop to find a reasonable value of "high".  See the code below for an implementation.  
 
 {% highlight python %}
-#class ArrayReader:
-#    def get(self, index: int) -> int:
+
+class ArrayReader:
+   def get(self, index: int) -> int:
 
 class Solution:
     def search(self, reader: 'ArrayReader', target: int) -> int:
