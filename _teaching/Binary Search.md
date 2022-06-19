@@ -186,3 +186,10 @@ class Solution:
 
 Here's my visual explanation.  
 ![Visual Solution Leetcode 1533](/images/BinarySearch_Leetcode1533.jpeg)
+
+Leetcode problem #1201 - Ugly Number 3 
+=====
+
+[Here is the problem](https://leetcode.com/problems/ugly-number-iii/)
+
+So the problem states that our number $n$ is less than or equal to $10^9$. 
