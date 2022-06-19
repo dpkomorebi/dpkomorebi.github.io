@@ -138,5 +138,48 @@ class Solution:
 
 {% endhighlight %}
 
-Leetcode problem 
+Leetcode problem #1533 - Find the index of the larger Integer 
 =====
+
+[Here is the problem.](https://leetcode.com/problems/find-the-index-of-the-large-integer/)
+
+We will use the binary search to solve this problem.  However, we have to be a bit careful in this case, because we don't have direct access to the given array.  
+
+## Points to consider
+- Notice that for an array with even length, even though reader.compareSub( ) has 3 possible values, it can't have 0 as its output in this case. 
+- If our array has an odd length, then reader.compareSub( ) will not include the middle point, because we want to compare the sums of intervals with equal number of elements in them. For an even length, we don't have to worry about this part.  Furthermore, for an odd length, if reader.compareSub( ) returns 0, this means array[mid] is the maximum value in the array so we return this index mid. 
+- When we are running binary search, it will eventually come down to a subarray of length 2.  In this case, there are 2 cases to consider. If array[low] < array[high], then reader.compareSub(low, mid, mid + 1, high) will return -1 (in this case, low == mid and mid + 1 == high, since there are 2 elements).  Similarly, if array[low] > array[high], then reader.compareSub(low, mid, mid + 1, high) will return 1.  Now, notice that our While loop has a condition "low < high".  So when we update either low or high by mid + 1 or mid respectively, we will get kicked out of While loop, for failing to meet that condition.  Therefore, we check beforehand to see if we are down to 2 elements in our subarray.  A simple check like "if low + 1 == high" suffices.  Then we return either low or high, depending on our condition.  See the code for clarification.  
+
+{% highlight python %}
+class Solution:
+    def getIndex(self, reader: 'ArrayReader') -> int:
+        
+        n = reader.length()
+        low, high = 0, n - 1
+        while low < high:
+            mid = low + (high - low) // 2
+            if mid - low + 1 != high - (mid + 1) + 1:
+                # odd case
+                result = reader.compareSub(low, mid - 1, mid + 1, high)
+                if result == 0:
+                    return mid
+                elif result == 1:
+                    high = mid
+                else:
+                    low = mid + 1
+                    if low == high:
+                        return low
+            else:
+                # even case
+                result = reader.compareSub(low, mid, mid + 1, high)
+                if result == 1:
+                    if low + 1 == high:
+                        return low 
+                    high = mid
+                elif result == -1:
+                    if low + 1 == high:
+                        return high
+                    low = mid + 1
+        
+
+{% endhighlight %} 
