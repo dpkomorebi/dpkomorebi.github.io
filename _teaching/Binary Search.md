@@ -183,3 +183,6 @@ class Solution:
         
 
 {% endhighlight %} 
+
+Here's my visual explanation.  
+![Visual Solution Leetcode 1533](/images/BinarySearch_Leetcode1533.jpeg)
