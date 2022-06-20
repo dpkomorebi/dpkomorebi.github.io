@@ -197,3 +197,34 @@ So the problem states that our number $n$ is less than or equal to $10^9$.  This
 Now, we can use math module from Python and compute LCM.  $LCM(a,b) = \frac{\vert a \vert \times \vert b \vert}{GCD(a,b)}$. 
 How about LCM of three integers? 
 $$LCM(a,b,c) = LCM( LCM(a,b), c) = LCM \Big( \frac{a\times b}{GCD(a,b)}, c \Big) = \frac{\frac{a\times b}{GCD(a,b)} \times c}{GCD\Big(\frac{a\times b}{GCD(a,b)} , c \Big)} = \frac{LCM(a,b) \times c}{GCD(LCM(a,b), c)} $$
+
+Here's the graph explaining my approach.  
+![Visual Solution Leetcode 1533](/images/BinarySearch_Leetcode1201.jpeg)
+
+Here's the code. 
+
+{% highlight python %}
+import math 
+class Solution:
+    def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
+        low, high = 1, 2 * 10 ** 9
+        a_b = a * b // math.gcd(a,b)
+        b_c = b * c // math.gcd(b,c)
+        a_c = a * c // math.gcd(a,c)
+        a_b_c = (a_b*c) // math.gcd( a_b, c)
+        
+        def isFeasible(num):
+            result = (num // a) + (num // b) + (num // c) - (num // a_b)  - (num // b_c)  - (num // a_c)  + (num // a_b_c ) 
+            return result >= n 
+        
+        while low < high:
+            mid = low + (high - low) // 2
+            if isFeasible(mid):
+                high = mid
+            else:
+                low = mid + 1 
+        return low 
+        
+{% endhighlight %} 
+
+Okay. 
