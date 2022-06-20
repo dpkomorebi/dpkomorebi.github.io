@@ -257,3 +257,35 @@ class Solution:
         
 
 {% endhighlight %} 
+
+Leetcode problem # 2064 - Minimized Maximum of Products Distributed to Any Store 
+=====
+
+[Here is the problem](https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/)
+
+So, I initally thought this was a variant of Min-Max problem.  However, upon looking at the problem's constraints, this problem can be solved by binary search.  
+- Store can be given at most one product type (and the amount can be 0). 
+- Given the constraint ( n: # of specialty retail stores), we will have bunch of numbers satisfying this constraint, while distributing all products. 
+- We can use binary search, where low = 1 and high = max(quantities). 
+{% highlight python %}
+class Solution:
+    def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
+        
+        def isFeasible(target):
+            count = 0
+            for quantity in quantities:
+                if quantity % target == 0:
+                    count += quantity // target
+                else:
+                    count += (quantity // target) + 1
+            return count <= n 
+        
+        low, high = 1, max(quantities)
+        while low < high:
+            mid = low + (high - low) // 2
+            if isFeasible(mid):
+                high = mid
+            else:
+                low = mid + 1
+        return low 
+{% endhighlight %} 
