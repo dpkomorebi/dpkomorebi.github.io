@@ -196,4 +196,4 @@ So the problem states that our number $n$ is less than or equal to $10^9$.  This
 
 Now, we can use math module from Python and compute LCM.  $LCM(a,b) = \frac{\vert a \vert \times \vert b \vert}{GCD(a,b)}$. 
 How about LCM of three integers? 
-$$LCM(a,b,c) = LCM( LCM(a,b), c) = LCM \Big( \frac{a\times b}{GCD(a,b)}, c \Big) = \frac{\frac{a\times b}{GCD(a,b)} \times c}{GCD\Big(\frac{a\times b}{GCD(a,b)} \Big), c} $$
+$$LCM(a,b,c) = LCM( LCM(a,b), c) = LCM \Big( \frac{a\times b}{GCD(a,b)}, c \Big) = \frac{\frac{a\times b}{GCD(a,b)} \times c}{GCD\Big(\frac{a\times b}{GCD(a,b)} , c \Big)} = \frac{LCM(a,b) \times c}{GCD(LCM(a,b), c)} $$
