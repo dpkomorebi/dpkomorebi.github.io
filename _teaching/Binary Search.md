@@ -227,4 +227,33 @@ class Solution:
         
 {% endhighlight %} 
 
-Okay. 
+Leetcode problem #1283 - Find the smallest divisor given a threshold. 
+=====
+
+[Here is the problem](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/)
+So, again, since we are finding the smallest number that's less than or equal to some given threshold number, we can use binary search. If you pay attention to the problems we have solved so far, in our IsFeasible() function, our return statement has greater than or equal to.  In this case, it is less than or equal to.  That's the only difference.  The code is pretty much the same. 
+
+{% highlight python %}
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        
+        def isFeasible(candidate):
+            result = 0 
+            for num in nums:
+                if num % candidate == 0:
+                    result += (num // candidate)
+                else:
+                    result += (num // candidate) + 1
+            return result <= threshold 
+        
+        low, high = 1, sum(nums)
+        while low < high:
+            mid = low + (high - low) // 2
+            if isFeasible(mid):
+                high = mid
+            else:
+                low = mid + 1
+        return low 
+        
+
+{% endhighlight %} 
