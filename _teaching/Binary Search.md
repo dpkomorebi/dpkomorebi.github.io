@@ -192,4 +192,6 @@ Leetcode problem #1201 - Ugly Number 3
 
 [Here is the problem](https://leetcode.com/problems/ugly-number-iii/)
 
-So the problem states that our number $n$ is less than or equal to $10^9$. 
+So the problem states that our number $n$ is less than or equal to $10^9$.  This problem requires us to use least commom multiple (LCM) and greatest common divisor(GCD).  Before we use these concepts, say we are given integers 3,4 and 5, and we want to find the 7th number that's divisible by those 3 integers.  How do we generate these numbers? Let's pick a number 10 and see how many integers are divisible by those 3 integers.  For an integer 2, these are the numbers that are less than or equal to 10, and are multiples of 2 : 2, 4, 6, 8, and 10.  Similarly, for an integer 3, we have 3, 6 and 9.  For 5, we have 5 and 10.  We notice that there are duplicate numbers - 6 and 10.  Well, 6 is a multiple of 2 and 3, and 10 is a multiple of 2 and 5.  So we will use LCM to take care of duplicate numbers.  Lastly, because we are given 3 integers, there will be integers multiple of those 3 integers.  We actually have to add the numbers obtained from multiple of LCM of those 3 integers.   It's better to see the graph below. 
+
+Now, we can use math module from Python and compute LCM.  $LCM(a,b) = \frac{\vert a \vert \times \vert b \vert}{GCD(a,b)}$. 
