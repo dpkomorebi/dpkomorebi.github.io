@@ -294,3 +294,10 @@ Leetcode problem #540 - Single Element in a Sorted Array
 =====
 
 [Here is the problem](https://leetcode.com/problems/single-element-in-a-sorted-array/)
+There are few things to note regarding this problem. 
+- The length of an array, num, is odd.
+- There is only one element that has no duplicate. 
+
+
+Here's the visualization. 
+![Visual Solution Leetcode 1533](/images/BinarySearch_Leetcode540.jpeg)
