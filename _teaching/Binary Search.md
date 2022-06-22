@@ -289,3 +289,8 @@ class Solution:
                 low = mid + 1
         return low 
 {% endhighlight %} 
+
+Leetcode problem #540 - Single Element in a Sorted Array 
+=====
+
+[Here is the problem](https://leetcode.com/problems/single-element-in-a-sorted-array/)
