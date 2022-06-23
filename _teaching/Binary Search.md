@@ -298,7 +298,8 @@ There are few things to note regarding this problem.
 - The length of an array, num, is odd.
 - There is only one element that has no duplicate. 
 - When we find the middle point ( mid = low + (high - low) // 2), the middle point's index can be either even or odd. For instance, if we are given an array of length 11 (so starting from 0 to 10), then the mid point is 5, whereas, the mid point is 4 for an array of length 9.  
-- Suppose we have an array $ \[1,1,2,2,3,3,4,4,5,5,6\] $ 
+- Suppose we have an array $ \[1,1,2,2,3,3,4,4,5,5,6\] $  The mid point is 5 with value 3.  There are odd numbers of numbers in the intervals left and right to this midpoint.  We check the two numbers adjacent to the mid point (so it will be  nums[mid-1] and nums[mid+1]) and see, which of them is equal to nums[mid]. If we are fortunate and we have a case where nums[mid] != nums[mid-1] AND nums[mid] != nums[mid+1], then nums[mid] is the unique element and we simply return this. 
+- Once we check the neighboring numbers, we reduce our search space by discarding the interval.  Which interval you might say?  Using that example, we have nums[mid] == nums[mid-1].  This means, our subinterval [1,1,2,2,3], which has 5 numbers (so odd) can be ignored and we simply set low = mid + 1.  Why? Because that left interval has odd numbers of elements and we checked that the last element, 3, is equal to our midpoint.  So this means our subarray [1,1,2,2] doesn't contain a duplicate number. Therefore, we look at the interval to the right of mid point. 
 
 
 Here's the visualization. 
