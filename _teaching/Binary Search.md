@@ -297,6 +297,8 @@ Leetcode problem #540 - Single Element in a Sorted Array
 There are few things to note regarding this problem. 
 - The length of an array, num, is odd.
 - There is only one element that has no duplicate. 
+- When we find the middle point ( mid = low + (high - low) // 2), the middle point's index can be either even or odd. For instance, if we are given an array of length 11 (so starting from 0 to 10), then the mid point is 5, whereas, the mid point is 4 for an array of length 9.  
+- Suppose we have an array $ \[1,1,2,2,3,3,4,4,5,5,6\] $ 
 
 
 Here's the visualization. 
