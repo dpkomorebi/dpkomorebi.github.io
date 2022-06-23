@@ -304,3 +304,29 @@ There are few things to note regarding this problem.
 
 Here's the visualization. 
 ![Visual Solution Leetcode 1533](/images/BinarySearch_Leetcode540.jpeg)
+{% highlight python %}
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+
+        
+        low, high = 0, len(nums) - 1
+        while low < high:
+            mid = low + (high - low) // 2
+            if nums[mid + 1] != nums[mid] and nums[mid - 1] != nums[mid]:
+                return nums[mid]
+            if mid % 2 != 0:
+                if nums[mid + 1] == nums[mid]:
+                    high = mid
+                elif nums[mid - 1] == nums[mid]:
+                    low = mid + 1
+            else:
+                if nums[mid + 1] == nums[mid]:
+                    low = mid + 1
+                elif nums[mid - 1] == nums[mid]:
+                    high = mid
+        return nums[low] 
+        
+        
+{% endhighlight %} 
