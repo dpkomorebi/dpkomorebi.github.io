@@ -4,7 +4,7 @@ collection: teaching
 type: "Computer Science"
 permalink: /teaching/2022-trickyproblems-teaching
 #venue: "University 1, Department"
-date: 2022-06-22
+date: 2022-06-25
 location: "City, Country"
 ---
 
@@ -14,3 +14,5 @@ Leetcode Problem #744 - Subsequence of Size K with the Largest Even Sum
 =====
 
 [Here is the problem](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+
+So 
