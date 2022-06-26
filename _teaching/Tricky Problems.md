@@ -52,4 +52,25 @@ Leetcode Problem #1423 - Maximum Points You Can Obtain from Cards
 =====
 [Here is the problem](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)
 
+Well, I initially thought about constructing a binary tree. For instance, let's use cardPoints = [2,10,8,7,1,4,3] with K = 3.  Then there are $2^3 = 8$ ways of representing a subarray adhering to the constraints of the problem.  However, notice that we find lots of duplicate.  Because we are only interested in finding the maximum number the subarray can have, we can discard duplicate numbers.  When I say duplicate numbers, I mean the subarrays that have same numbers in it - [2,3,10] and [2,10,3] are the same. 
 
+![Visual Solution Leetcode 1423](/images/Leetcode1423.jpeg)
+
+{% highlight python %}
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        result = 0 
+        
+        #from the 0th to k-1th position
+        for i in range(0,k):
+            result += cardPoints[i]
+        
+        answer = result 
+        for i in range(k-1, -1, -1):
+            s = len(cardPoints) - k 
+            result = result - cardPoints[i] + cardPoints[i + s]
+            answer = max(answer, result )
+        return answer         
+{% endhighlight %} 
+
+=====
