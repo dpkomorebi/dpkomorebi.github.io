@@ -10,7 +10,7 @@ location: "City, Country"
 
 This section contains Leetcode problems that are a bit more general than problems we have encountered so far.  In other words, there are many methods to solve problems efficiently.  
 
-Leetcode Problem #744 - Subsequence of Size K with the Largest Even Sum 
+Leetcode Problem #744 - FInd the Smallest Letter Greater than Target 
 =====
 
 [Here is the problem](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
