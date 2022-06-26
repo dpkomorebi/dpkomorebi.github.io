@@ -33,6 +33,13 @@ Skills
 * Java
 * Git
 
+Courses taken
+=====
+CS189 (Machine Learning) at UC Berkeley - Summer 2018 
+
+
+
+
 Publications
 ======
   <ul>{% for post in site.publications %}
