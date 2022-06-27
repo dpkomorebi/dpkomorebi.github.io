@@ -65,6 +65,7 @@ I couldn't figure out where to put this problem, so I put it here.  Once we find
 - We return the minimum of (first case, second case, third case). 
 
 See the graphical solution below to help you understand my code. 
+![Visual Solution Leetcode 2091](/images/Leetcode2091.jpeg)
 
 {% highlight python %}
 
