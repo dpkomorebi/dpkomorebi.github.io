@@ -86,3 +86,33 @@ class Solution:
         return min(bigger_index + 1, n - smaller_index , smaller_index + n  - bigger_index + 1)
 
 {% endhighlight %}
+Leetcode Problem #1647 - Minimum Deletion to Make Characters Frequencies Unique 
+=====
+[Here is the problem](https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/)
+
+For this problem, the key point is that we are only making deletion.  If we are allowed to have both addition and deletion, this problem could have been more difficult.  Thankfully, we only care about deletion.  Hypothetically, let's say we have "aaabbbcccdddeee". Then we can count how many these alpahbets are occuring.  So we have {a : 3, b: 3, c: 3, d : 3, e : 3}.  While we can use dictionary to store frequencies, I prefer an array because we only have 26 characters.  Initializing an array first by setting counter = [0] * 26, we would have [3,3,3,3,3, 0,0, ..., 0].  We can use a set to determine if we already have the same frequency in our set. Since our set is empty, counter[0] is not in the set so we add 3 to the set.  Next, we are at counter[1]. Because this is already in our set, we decrement it by 1 and see if this reduced number is in the set.  It's not so we add 2 to the set.  Our set has {3,2}.  Now we are at counter[2], which is 3.  Decrement it by 2 and our set is now {3,2,1}. Now how about counter[3]? This is also 3.  Well, the problem's example 3 says that frequency of 0 is just ignored.  This means we can decrement this number to 0 and forget about it.  If we keep how many times we are decrementing numbers, we simply return that number and we are done. 
+
+{% highlight python %}
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        counter = [0] * 26
+        for letter in s:
+            counter[ord(letter) - ord("a")] += 1
+        
+        result = 0 
+        hashSet = set()
+        for count in counter:
+            if count not in hashSet:
+                hashSet.add(count)
+            else:
+                deletionCount = 0 
+                while count and count in hashSet:
+                    count -= 1
+                    deletionCount += 1
+                hashSet.add(count)
+                result += deletionCount
+        return result 
+                    
+            
+
+{% endhighlight %}
