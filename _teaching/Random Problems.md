@@ -52,3 +52,36 @@ class Solution:
 
 
 {% endhighlight %}
+
+Leetcode Problem #2091 - Removing Minimum and Maximum from Array 
+=====
+
+[Here is the problem](https://leetcode.com/problems/removing-minimum-and-maximum-from-array/)
+
+I couldn't figure out where to put this problem, so I put it here.  Once we find the maximum and the minimum of an array, nums, and their positions as well, we have 3 cases to consider. 
+- First case : We simply start from an index 0 and continue until we hit the maximum of index positions of those two numbers. 
+- Second case : We start from an index (len(nums) - 1), i.e the last index.  We traverse backward until we hit the minimum of index positions of those two numbers.
+- Third case : For smaller index position, we start from 0.  For larger index position, we start from the end.  Combine these two numbers. 
+- We return the minimum of (first case, second case, third case). 
+
+See the graphical solution below to help you understand my code. 
+
+{% highlight python %}
+
+class Solution:
+    def minimumDeletions(self, nums: List[int]) -> int:
+        maximum, minimum = 0, 0
+        n = len(nums)
+        
+        maximum = max(nums)
+        minimum = min(nums)
+        max_location = nums.index(maximum)
+        min_location = nums.index(minimum)
+        
+        bigger_index = max(max_location, min_location)
+        smaller_index = min(max_location, min_location)
+        
+        
+        return min(bigger_index + 1, n - smaller_index , smaller_index + n  - bigger_index + 1)
+
+{% endhighlight %}
