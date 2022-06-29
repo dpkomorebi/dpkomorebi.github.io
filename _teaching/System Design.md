@@ -15,6 +15,16 @@ Leetcode Problem #635 - Design Log Storage System
 
 [Here is the problem from Leetcode](https://leetcode.com/problems/design-log-storage-system/)
 
+So the format of timestamp is "Year:Month:Day:Hour:Minute:Second", separated by ":".  Now, looking at the description of retrieve function, we notice that, if granularity is set to "Day", then we don't care about things that come next - "Hour", "Minute" and "Second".  So this tells us that we can design a list in such a way that we can sort this list based on the input of granularity.  
+- We use split() method to get rid of ":" and create a list "mod_time" that stores given timestamp input in the following way 
+- ["Year", "Year" + "Month", "Year" + "Month" + "Day", ... , "Year" + "Month" + "Day" + "Hour" + "Minute" + "Second"]. 
+- We create a dictionary called "time" that corresponds to "mod_time".  If we are given granularity = "Day", then time["Day"] will return 2 and will sort the array "storage" (this will store both id and timestamp) using lambda function. 
+
+I've attached a visual representation of our array "storage".  
+
+
+![Visual Solution Leetcode 635](/images/Leetcode635.jpeg)
+
 
 {% highlight python %}
 class LogSystem:
