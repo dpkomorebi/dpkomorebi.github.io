@@ -14,6 +14,10 @@ Leetcode problem #2279 - Maximum Bags with Full Capacity of Rocks
 =====
 [Here is the link to the problem](https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/)
 
+Since we are just returning the maximum number of bags that could have full capacity after placing additional rocks, we can modify the array to our advantage.  Let's create an array, called "diff", and this array will store the difference of capacity[i] - rocks[i], i from 0 to (length of capacity) - 1. We can sort diff array from lowest to the highest. Let's create another variable called "counter", which store # of full capacity bags.  Starting from 0 index, if the diff[i] == 0, then we don't need to place additional rock so we increment count by 1 and move to the next one.   
+- Time Complexity is $O(n \log n)$, since sorting costs $n\log n$ and we need to do a linear scan, which would cost us $O(n)$ in the worst case. 
+- Space Complexity is $O(n)$, because we create an array called "diff." 
+
 {% highlight python %}
 
 class Solution:
