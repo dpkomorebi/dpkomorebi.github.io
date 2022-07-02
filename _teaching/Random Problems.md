@@ -116,3 +116,16 @@ class Solution:
             
 
 {% endhighlight %}
+
+Leetcode problem #2210 - Count Hills and Valleys in an Array 
+=====
+[Here is the problem](https://leetcode.com/problems/count-hills-and-valleys-in-an-array/) 
+
+My first approach solving this problem was to create another array where this new array will not have duplicate numbers.  So first, as we run a linear scan on the given array, we put unique numbers we encounter into this new array.  Then, we run another linear scan on this new array to find the total numbers of hills and valleys. 
+- Time complexity : $O(n)$.  The worst case is when we have no duplicate numbers, so we are running linear scan on this given array twice i.e $O(2n) = O(n)$. 
+- Space complexity : $O(n)$. The worst case is when we have no duplicate numbers. 
+
+My second approach was not relying on creating new array.  When we encounter duplicate numbers, we move our pointer to the last position of these duplicate numbers.  In other words, if we have [2,3,3,3,3,4,...], and our pointer points to index 1, then our pointer should be moved to index 4 (which is still nums[4] = 3, and yet this is the last position of those duplicate numbers).  After we determine whether those numbers of 3 is a hill or a valley, we can increment index by 1 and move directly to index 5.  
+
+See below for the visual representation. 
+![Visual Solution Leetcode 2210](/images/Leetcode2091.jpeg)
