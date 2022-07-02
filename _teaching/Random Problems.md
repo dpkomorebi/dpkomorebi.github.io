@@ -128,4 +128,55 @@ My first approach solving this problem was to create another array where this ne
 My second approach was not relying on creating new array.  When we encounter duplicate numbers, we move our pointer to the last position of these duplicate numbers.  In other words, if we have [2,3,3,3,3,4,...], and our pointer points to index 1, then our pointer should be moved to index 4 (which is still nums[4] = 3, and yet this is the last position of those duplicate numbers).  After we determine whether those numbers of 3 is a hill or a valley, we can increment index by 1 and move directly to index 5.  
 
 See below for the visual representation. 
-![Visual Solution Leetcode 2210](/images/Leetcode2091.jpeg)
+![Visual Solution Leetcode 2210](/images/Leetcode2210.jpeg)
+
+Below is the code for the first approach.
+{% highlight python %}
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        modified_array = []
+        modified_array.append(nums[0])
+        ptr = 0 
+        for i in range(1, len(nums)):
+            if nums[i] != modified_array[ptr]:
+                modified_array.append(nums[i])
+                ptr += 1
+        count = 0 
+        for j in range(1, len(modified_array) - 1):
+            if modified_array[j-1] < modified_array[j] and modified_array[j] >  modified_array[j+1]:
+                # we found a hill 
+                count += 1
+            elif modified_array[j-1] > modified_array[j] and modified_array[j+1] > modified_array[j]:
+                count += 1
+            else:
+                continue 
+        return count 
+{% endhighlight %}
+
+Below is the code for the second approach.
+{% highlight python %}
+def countHillValley(nums):
+    count = 0
+    index = 1 # we start from an index 1
+
+    while i < len(nums) - 1:
+        left_number = nums[i - 1] # have to put it above inner while loop because our index i can be changed. 
+        while i + 1 < len(nums) - 1 and nums[i] == nums[i + 1]:
+            i += 1 
+        # in the case of [2,4,4,1,...]
+        # we start at index 1, which is equal to 4.
+        # Our inner while loop will give us a new index, i = 2
+        
+        # check whether this is a hill or a valley
+        right_number = nums[i + 1]
+        if left_number < nums[i] and nums[i] > right_number:
+            count += 1 # the case we have a hill 
+        elif left_number > nums[i] and right_number > nums[i]:
+            count += 1  # the case we have a valley 
+        # go to the next index
+        i += 1
+    return count 
+{% endhighlight %} 
+
+Next problem 
+=====
